@@ -1,0 +1,15 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name = "com.dh10.stringchecker.model.Synonymus" table = "Synonymus">
+
+        <meta attribute = "class-description">
+        </meta>
+        <id name = "synonymus_name" type = "string" column = "synonymus_name">
+        </id>
+        <property name = "algorithm_name" column = "algorithm_name" type = "string"/>
+    </class>
+</hibernate-mapping>

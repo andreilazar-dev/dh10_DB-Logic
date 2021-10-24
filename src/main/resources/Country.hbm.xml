@@ -1,0 +1,21 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name = "com.dh10.stringchecker.model.Country" table = "Countries">
+
+        <meta attribute = "class-description">
+        </meta>
+
+        <id name = "country_name" type = "string" column = "contry_name">
+        </id>
+
+        <set name = "synonymus" cascade="all">
+            <key column = "country_name"/>
+            <one-to-many class="com.dh10.stringchecker.model.Synonymus"/>
+        </set>
+
+    </class>
+</hibernate-mapping>
