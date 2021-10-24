@@ -1,6 +1,6 @@
 package com.dh10.stringchecker.controller.recover.db;
 
-import com.dh10.stringchecker.model.Country;
+import com.dh10.stringchecker.model.beans.Country;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

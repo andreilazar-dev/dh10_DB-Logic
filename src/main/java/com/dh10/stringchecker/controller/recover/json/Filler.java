@@ -1,6 +1,6 @@
 package com.dh10.stringchecker.controller.recover.json;
 
-import com.dh10.stringchecker.model.Country;
+import com.dh10.stringchecker.model.beans.Country;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Filler {
 
-    /* Method to CREATE an person in the database */
+    /* Method to CREATE an country in the database */
     public boolean addCountries() {
 
         DBaccess dBaccess = DBaccess.getInstance();

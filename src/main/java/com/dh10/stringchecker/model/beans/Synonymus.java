@@ -1,6 +1,6 @@
-package com.dh10.stringchecker.model;
+package com.dh10.stringchecker.model.beans;
 
-public class Synonymus {
+public class Synonymus implements Bean {
 
     String synonymus_name;
     String algorithm_name;

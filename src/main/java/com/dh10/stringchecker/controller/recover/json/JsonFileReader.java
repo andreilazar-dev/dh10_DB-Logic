@@ -1,6 +1,6 @@
 package com.dh10.stringchecker.controller.recover.json;
 
-import com.dh10.stringchecker.model.Country;
+import com.dh10.stringchecker.model.beans.Country;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;

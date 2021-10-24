@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name = "com.dh10.stringchecker.model.Country" table = "Countries">
+    <class name = "com.dh10.stringchecker.model.beans.Country" table = "Countries">
 
         <meta attribute = "class-description">
         </meta>
@@ -14,7 +14,7 @@
 
         <set name = "synonymus" cascade="all">
             <key column = "country_name"/>
-            <one-to-many class="com.dh10.stringchecker.model.Synonymus"/>
+            <one-to-many class="com.dh10.stringchecker.model.beans.Synonymus"/>
         </set>
 
     </class>

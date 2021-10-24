@@ -1,9 +1,9 @@
-package com.dh10.stringchecker.model;
+package com.dh10.stringchecker.model.beans;
 
 
 import java.util.Set;
 
-public class Country {
+public class Country implements Bean {
 
     private String country_name;
     private Set synonymus;
