@@ -20,8 +20,7 @@ public abstract class StringCheckerDef implements StringChecker {
     abstract boolean check(String input, String standard);
 
     @Override
-    public final boolean check(String input) {
-
+    public boolean check(String input) {
         for (String standard : paroleStandard.getStandars()) {
             if (check(input, standard)) {
                 System.out.println("Trovata corrispondenza = " + standard + "  " + this.getClass().getSimpleName());

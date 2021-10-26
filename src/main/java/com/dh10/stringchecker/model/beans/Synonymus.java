@@ -5,6 +5,7 @@ public class Synonymus implements Bean {
     String synonymus_name;
     String algorithm_name;
     String status;
+    String country_name;
 
     public Synonymus() {
     }
@@ -39,6 +40,13 @@ public class Synonymus implements Bean {
         this.status = status;
     }
 
+    public String getCountry_name() {
+        return country_name;
+    }
+
+    public void setCountry_name(String country_name) {
+        this.country_name = country_name;
+    }
 
     public boolean equals(Object obj) {
         if (obj == null) return false;
