@@ -15,51 +15,27 @@
                 <configuration>
                     <source>16</source>
                     <target>16</target>
+                    <compilerArgs>--disable-preview</compilerArgs>
                 </configuration>
             </plugin>
         </plugins>
     </build>
 
     <properties>
-        <maven.compiler.source>16</maven.compiler.source>
-        <maven.compiler.target>16</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId> org.apache.cassandra</groupId>
-            <artifactId>cassandra-all</artifactId>
-            <version>0.8.1</version>
 
-            <exclusions>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-log4j12</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>log4j</groupId>
-                    <artifactId>log4j</artifactId>
-                </exclusion>
-            </exclusions>
-
-        </dependency>
-
-
-        <!--Hibernate 5-->
+        <!--Hibernate 4 -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>5.6.0.Final</version>
+            <version>5.4.22.Final</version>
         </dependency>
 
-
-        <!-- Only for JPA use -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-entitymanager</artifactId>
-            <version>5.6.0.Final</version>
-        </dependency>
-
+        <!--end test-->
 
         <!-- Only for MySql use -->
         <dependency>
@@ -68,22 +44,11 @@
             <version>8.0.27</version>
         </dependency>
 
-
-
-        <!--Hibernate 5 don't need this  -->
         <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-annotations</artifactId>
-            <version>3.5.6-Final</version>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1.1</version>
         </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>ejb3-persistence</artifactId>
-            <version>1.0.2.GA</version>
-            <type>pom</type>
-        </dependency>
-        <!---->
-
 
     </dependencies>
 
