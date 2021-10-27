@@ -1,7 +1,10 @@
 package com.dh10.stringchecker.controller.string;
 
 import com.dh10.stringchecker.controller.recover.db.StandardWords;
-import com.dh10.stringchecker.controller.recover.db.StandardWords;
+import com.dh10.stringchecker.model.beans.Country;
+import com.dh10.stringchecker.model.beans.Synonymus;
+import com.dh10.stringchecker.model.dao.Dao;
+import com.dh10.stringchecker.model.dao.SynonymusDao;
 
 public abstract class StringCheckerDef implements StringChecker {
     StandardWords paroleStandard;
@@ -20,11 +23,12 @@ public abstract class StringCheckerDef implements StringChecker {
     abstract boolean check(String input, String standard);
 
     @Override
-    public final boolean check(String input) {
-
+    public boolean check(String input) {
         for (String standard : paroleStandard.getStandars()) {
             if (check(input, standard)) {
                 System.out.println("Trovata corrispondenza = " + standard + "  " + this.getClass().getSimpleName());
+                Dao<Synonymus> synonymusDao = new SynonymusDao();
+                synonymusDao.save(new Synonymus(input,this.getClass().getSimpleName().toString(),1 ,new Country(standard)));
                 return true;
             }
         }

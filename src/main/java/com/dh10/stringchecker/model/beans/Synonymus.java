@@ -4,15 +4,17 @@ public class Synonymus implements Bean {
 
     String synonymus_name;
     String algorithm_name;
-    String status;
+    int status;
+    Country country;
 
     public Synonymus() {
     }
 
-    public Synonymus(String synonymus_name, String algorithm_name, String status) {
+    public Synonymus(String synonymus_name, String algorithm_name, int status, Country country) {
         this.synonymus_name = synonymus_name;
         this.algorithm_name = algorithm_name;
         this.status = status;
+        this.country = country;
     }
 
     public String getSynonymus_name() {
@@ -31,14 +33,21 @@ public class Synonymus implements Bean {
         this.algorithm_name = algorithm_name;
     }
 
-    public String getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
 
     public boolean equals(Object obj) {
         if (obj == null) return false;

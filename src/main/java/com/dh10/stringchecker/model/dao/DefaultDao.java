@@ -7,7 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-public class DefaultDao {
+public abstract class DefaultDao {
     DBaccess dBaccess = DBaccess.getInstance();
     SessionFactory factory = dBaccess.getFactory();
 
