@@ -28,7 +28,7 @@
 
     <dependencies>
 
-        <!--Hibernate 4 -->
+        <!--Hibernate 5 -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
