@@ -15,14 +15,11 @@ public class DemoStringChecker {
     public static void main(String[] args) {
 
         StringChecker countrycheck = new CountryChecker();
-        if(countrycheck.find_standard("Italzyz"))
-            System.out.println("Nazione Trovata");
-        else
-            System.out.println("Nazione non Trovata");
-        if(countrycheck.find_standard("Italyz"))
-            System.out.println("Nazione Trovata");
-        else
-            System.out.println("Nazione non Trovata");
-
+        if(countrycheck.find_standard("Afghani")!=null)
+            System.out.println(countrycheck.find_standard("Afghani"));
+        else {
+        	 System.out.println("nazione non trovata");
+        }
+        
     }
 }

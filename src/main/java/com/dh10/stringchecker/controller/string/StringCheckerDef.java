@@ -21,24 +21,28 @@ public abstract class StringCheckerDef implements StringChecker {
 
 
     abstract boolean check(String input, String standard);
+    
+   
 
     @Override
-    public boolean check(String input) {
+    public String check(String input) {
         for (String standard : paroleStandard.getStandars()) {
             if (check(input, standard)) {
                 System.out.println("Trovata corrispondenza = " + standard + "  " + this.getClass().getSimpleName());
                 Dao<Synonymus> synonymusDao = new SynonymusDao();
                 synonymusDao.save(new Synonymus(input,this.getClass().getSimpleName().toString(),1 ,new Country(standard)));
-                return true;
+                return standard;
             }
         }
+        
         if (next != null) {
             System.out.println(this.getClass().getSimpleName() + " non ha trovato corrispondenza, procedo con il successivo");
             return next.check(input);
 
-        } else {
+        }else {
             System.out.println("Nessuna corrispondenza trovata ");
         }
-        return false;
+   
+        return null;
     }
 }

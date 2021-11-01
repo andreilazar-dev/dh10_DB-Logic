@@ -31,7 +31,7 @@ public class CountryChecker extends StringChecker {
         cs3.setParoleStandard(new Countries());
         cs4.setParoleStandard(new Countries());
     }
-    public boolean find_standard (String word){
+    public String find_standard (String word){
          return cs.check(word);
     }
 }

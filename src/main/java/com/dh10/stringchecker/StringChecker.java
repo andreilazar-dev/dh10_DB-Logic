@@ -8,5 +8,5 @@ public abstract class StringChecker {
         dbAccess = DBaccess.getInstance();
     }
 
-    public abstract boolean find_standard(String word);
+    public abstract String find_standard(String word);
 }
