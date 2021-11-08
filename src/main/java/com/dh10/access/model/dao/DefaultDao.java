@@ -1,6 +1,7 @@
-package com.dh10.stringchecker.model.dao;
+package com.dh10.access.model.dao;
 
-import com.dh10.stringchecker.model.beans.Bean;
+
+import com.dh10.access.model.beans.Bean;
 import com.dh10.utils.DBaccess;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -27,7 +28,7 @@ public abstract class DefaultDao {
         }
     }
 
-    public Object get(Class<? extends Bean> class1, long id) {
+    public Object get(Class<? extends Bean> class1, String id) {
         Session session = factory.openSession();
         Transaction tx = null;
         Object o = null;

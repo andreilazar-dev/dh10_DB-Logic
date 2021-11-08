@@ -1,6 +1,6 @@
 package com.dh10.stringchecker;
 
-import com.dh10.stringchecker.utils.DBaccess;
+import com.dh10.utils.DBaccess;
 
 public abstract class StringChecker {
     DBaccess dbAccess = null ;

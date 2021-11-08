@@ -1,6 +1,5 @@
 package com.dh10.stringchecker.model.dao;
 
-import com.dh10.stringchecker.model.beans.Country;
 import com.dh10.stringchecker.model.beans.Synonymus;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;

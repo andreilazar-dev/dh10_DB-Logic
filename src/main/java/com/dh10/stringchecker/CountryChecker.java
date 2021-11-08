@@ -6,7 +6,7 @@ import com.dh10.stringchecker.controller.string.Contained;
 import com.dh10.stringchecker.controller.string.Contains;
 import com.dh10.stringchecker.controller.string.Levensthein;
 import com.dh10.stringchecker.controller.string.StringCheckerDef;
-import com.dh10.stringchecker.utils.DBaccess;
+import com.dh10.utils.DBaccess;
 
 public class CountryChecker extends StringChecker {
     private StringCheckerDef cs = null;

@@ -1,0 +1,19 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name = "com.dh10.access.model.beans.User" table = "Users">
+
+        <meta attribute = "class-description">
+        </meta>
+        <id name = "userId" type = "string" column = "userId">
+        </id>
+        <property name = "firstName" column = "firstName" type = "string"/>
+        <property name = "lastName" column = "lastName" type = "string"/>
+        <property name = "country" column = "country" type = "string"/>
+        <property name = "password" column = "password" type = "string"/>
+
+    </class>
+</hibernate-mapping>
