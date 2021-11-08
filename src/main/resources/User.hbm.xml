@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name = "com.dh10.access.model.beans.User" table = "Users">
+    <class name = "com.dh10.access.model.beans.User" table = "User">
 
         <meta attribute = "class-description">
         </meta>
