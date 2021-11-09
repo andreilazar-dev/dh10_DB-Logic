@@ -12,7 +12,7 @@ import java.util.Optional;
 
 public class CountryDao extends DefaultDao implements Dao<Country> {
     @Override
-    public Optional<Country> get(long id) {
+    public Optional<Country> get(String id) {
         return (Optional<Country>) super.get(Country.class, id);
     }
 

@@ -7,6 +7,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
+
 public abstract class DefaultDao {
     DBaccess dBaccess = DBaccess.getInstance();
     SessionFactory factory = dBaccess.getFactory();
@@ -21,13 +24,13 @@ public abstract class DefaultDao {
             tx.commit();
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
-            e.printStackTrace();
+           e.printStackTrace();
         } finally {
             session.close();
         }
     }
 
-    public Object get(Class<? extends Bean> class1, long id) {
+    public Object get(Class<? extends Bean> class1, String id) {
         Session session = factory.openSession();
         Transaction tx = null;
         Object o = null;

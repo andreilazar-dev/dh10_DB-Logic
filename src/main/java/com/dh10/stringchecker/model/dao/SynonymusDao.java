@@ -5,6 +5,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -12,8 +13,8 @@ import java.util.Optional;
 
 public class SynonymusDao extends DefaultDao implements Dao<Synonymus> {
     @Override
-    public Optional<Synonymus> get(long id) {
-        return Optional.empty();
+    public Optional<Synonymus> get(String id) {
+        return (Optional<Synonymus>) super.get(Synonymus.class,id);
     }
 
     @Override
@@ -40,7 +41,8 @@ public class SynonymusDao extends DefaultDao implements Dao<Synonymus> {
 
     @Override
     public void save(Synonymus synonymus) {
-        super.save(synonymus);
+        if (get(Synonymus.class, synonymus.getSynonymus_name()) == null)
+            super.save(synonymus);
     }
 
     @Override
