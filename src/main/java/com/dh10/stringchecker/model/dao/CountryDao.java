@@ -44,7 +44,7 @@ public class CountryDao extends DefaultDao implements Dao<Country> {
     }
 
     @Override
-    public void update(Country country, String[] params) {
+    public void update(List<Country> country) {
 
     }
 
@@ -54,7 +54,6 @@ public class CountryDao extends DefaultDao implements Dao<Country> {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            List persons = session.createQuery("FROM Country").list();
             session.delete(country);
             tx.commit();
         } catch (HibernateException e) {

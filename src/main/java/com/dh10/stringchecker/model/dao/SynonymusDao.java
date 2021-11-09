@@ -46,7 +46,23 @@ public class SynonymusDao extends DefaultDao implements Dao<Synonymus> {
     }
 
     @Override
-    public void update(Synonymus synonymus, String[] params) {
+    public void update(List<Synonymus> synonymus) {
+        Session session = factory.openSession();
+        Transaction tx = null;
+
+
+        try {
+            tx = session.beginTransaction();
+            for (Synonymus val:synonymus) {
+                session.update(val);
+            }
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
 
     }
 
