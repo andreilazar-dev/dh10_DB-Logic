@@ -15,7 +15,7 @@ public class DemoStringChecker {
 
         StringChecker countrycheck = new CountryChecker();
         String out = "";
-       out = countrycheck.find_standard("Italiz");
+       out = countrycheck.find_standard("Italizsss");
        System.out.println(out);
 
         Dao<Synonymus> test = new SynonymusDao();

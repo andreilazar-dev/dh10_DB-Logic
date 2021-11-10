@@ -9,6 +9,7 @@ import com.dh10.stringchecker.model.dao.SynonymusDao;
 public abstract class StringCheckerDef implements StringChecker {
     StandardWords paroleStandard;
     StringChecker next = null;
+    private Dao<Synonymus> synonymusDao = new SynonymusDao();
 
     public void setParoleStandard(StandardWords paroleStandard) {
         this.paroleStandard = paroleStandard;
@@ -29,7 +30,6 @@ public abstract class StringCheckerDef implements StringChecker {
         for (String standard : paroleStandard.getStandars()) {
             if (check(input, standard)) {
                 System.out.println("Trovata corrispondenza = " + standard + "  " + this.getClass().getSimpleName());
-                Dao<Synonymus> synonymusDao = new SynonymusDao();
                 synonymusDao.save(new Synonymus(input,this.getClass().getSimpleName().toString(),1 ,new Country(standard)));
                 return standard;
             }
@@ -41,6 +41,7 @@ public abstract class StringCheckerDef implements StringChecker {
 
         }else {
             System.out.println("Nessuna corrispondenza trovata ");
+            synonymusDao.save(new Synonymus(input, null ,1 ,null));
         }
    
         return null;
