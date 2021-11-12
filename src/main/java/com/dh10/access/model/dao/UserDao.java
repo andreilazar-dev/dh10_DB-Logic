@@ -12,8 +12,8 @@ import java.util.Optional;
 
 public class UserDao extends DefaultDao implements Dao<User> {
     @Override
-    public Optional<User> get(String id) {
-        return (Optional<User>) super.get(User.class ,id);
+    public User get(String id) {
+        return (User) super.get(User.class ,id);
     }
 
     @Override
