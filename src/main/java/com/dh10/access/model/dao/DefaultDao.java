@@ -1,14 +1,12 @@
-package com.dh10.stringchecker.model.dao;
+package com.dh10.access.model.dao;
 
-import com.dh10.stringchecker.model.beans.Bean;
+
+import com.dh10.access.model.beans.Bean;
 import com.dh10.utils.DBaccess;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-
-import java.sql.SQLException;
-import java.sql.SQLIntegrityConstraintViolationException;
 
 public abstract class DefaultDao {
     DBaccess dBaccess = DBaccess.getInstance();
@@ -24,7 +22,7 @@ public abstract class DefaultDao {
             tx.commit();
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
-           e.printStackTrace();
+            e.printStackTrace();
         } finally {
             session.close();
         }

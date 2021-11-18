@@ -1,32 +1,33 @@
 package com.dh10.stringchecker.model.dao;
 
-import com.dh10.stringchecker.model.beans.Country;
+import com.dh10.stringchecker.model.beans.Synonymus;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
-public class CountryDao extends DefaultDao implements Dao<Country> {
+public class SynonymusDao extends DefaultDao implements Dao<Synonymus> {
     @Override
-    public Optional<Country> get(String id) {
-        return (Optional<Country>) super.get(Country.class, id);
+    public Optional<Synonymus> get(String id) {
+        return (Optional<Synonymus>) super.get(Synonymus.class,id);
     }
 
     @Override
-    public List<Country> getAll() {
+    public List<Synonymus> getAll() {
         Session session = factory.openSession();
         Transaction tx = null;
-        List<Country> all = new ArrayList<>();
+        List<Synonymus> all = new ArrayList<>();
 
         try {
             tx = session.beginTransaction();
-            List countries = session.createQuery("FROM Country").list();
+            List countries = session.createQuery("FROM Synonymus").list();
             for (Iterator iterator = countries.iterator(); iterator.hasNext(); ) {
-                all.add((Country) iterator.next());
+                all.add((Synonymus) iterator.next());
             }
             tx.commit();
         } catch (HibernateException e) {
@@ -39,22 +40,22 @@ public class CountryDao extends DefaultDao implements Dao<Country> {
     }
 
     @Override
-    public void save(Country country) {
-        super.save(country);
+    public void save(Synonymus synonymus) {
+        if (get(Synonymus.class, synonymus.getSynonymus_name()) == null)
+            super.save(synonymus);
     }
 
     @Override
-    public void update(List<Country> country) {
-
-    }
-
-    @Override
-    public void delete(Country country) {
+    public void update(List<Synonymus> synonymus) {
         Session session = factory.openSession();
         Transaction tx = null;
+
+
         try {
             tx = session.beginTransaction();
-            session.delete(country);
+            for (Synonymus val:synonymus) {
+                session.update(val);
+            }
             tx.commit();
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
@@ -62,5 +63,11 @@ public class CountryDao extends DefaultDao implements Dao<Country> {
         } finally {
             session.close();
         }
+
+    }
+
+    @Override
+    public void delete(Synonymus synonymus) {
+
     }
 }

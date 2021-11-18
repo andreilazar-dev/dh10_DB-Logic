@@ -11,5 +11,9 @@
         <id name = "synonymus_name" type = "string" column = "synonymus_name">
         </id>
         <property name = "algorithm_name" column = "algorithm_name" type = "string"/>
+        <property name = "status" column = "status" type = "int"/>
+
+        <many-to-one class="com.dh10.stringchecker.model.beans.Country" name="country" cascade="all"/>
+
     </class>
 </hibernate-mapping>

@@ -5,7 +5,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import com.dh10.stringchecker.utils.DBaccess;
+import com.dh10.utils.DBaccess;
 
 import java.util.List;
 

@@ -1,12 +1,8 @@
 package com.dh10.stringchecker.model.beans;
 
-
-import java.util.Set;
-
 public class Country implements Bean {
 
     private String country_name;
-    private Set synonymus;
 
     public Country() {
     }
@@ -23,11 +19,5 @@ public class Country implements Bean {
         this.country_name = country_name;
     }
 
-    public Set getSynonymus() {
-        return synonymus;
-    }
-
-    public void setSynonymus(Set synonymus) {
-        this.synonymus = synonymus;
-    }
 }
+

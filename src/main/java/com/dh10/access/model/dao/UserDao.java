@@ -1,6 +1,6 @@
-package com.dh10.stringchecker.model.dao;
+package com.dh10.access.model.dao;
 
-import com.dh10.stringchecker.model.beans.Country;
+import com.dh10.access.model.beans.User;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -10,23 +10,23 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
-public class CountryDao extends DefaultDao implements Dao<Country> {
+public class UserDao extends DefaultDao implements Dao<User> {
     @Override
-    public Optional<Country> get(String id) {
-        return (Optional<Country>) super.get(Country.class, id);
+    public User get(String id) {
+        return (User) super.get(User.class ,id);
     }
 
     @Override
-    public List<Country> getAll() {
+    public List<User> getAll() {
         Session session = factory.openSession();
         Transaction tx = null;
-        List<Country> all = new ArrayList<>();
+        List<User> all = new ArrayList<>();
 
         try {
             tx = session.beginTransaction();
-            List countries = session.createQuery("FROM Country").list();
-            for (Iterator iterator = countries.iterator(); iterator.hasNext(); ) {
-                all.add((Country) iterator.next());
+            List users = session.createQuery("FROM User").list();
+            for (Iterator iterator =users.iterator(); iterator.hasNext(); ) {
+                all.add((User) iterator.next());
             }
             tx.commit();
         } catch (HibernateException e) {
@@ -39,22 +39,23 @@ public class CountryDao extends DefaultDao implements Dao<Country> {
     }
 
     @Override
-    public void save(Country country) {
-        super.save(country);
+    public void save(User user) {
+        super.save(user);
     }
 
     @Override
-    public void update(List<Country> country) {
+    public void update(User user, String[] params) {
 
     }
 
     @Override
-    public void delete(Country country) {
+    public void delete(User user) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.delete(country);
+            List persons = session.createQuery("FROM User").list();
+            session.delete(user);
             tx.commit();
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();

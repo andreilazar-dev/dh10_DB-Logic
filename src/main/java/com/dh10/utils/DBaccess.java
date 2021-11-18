@@ -1,4 +1,4 @@
-package com.dh10.stringchecker.utils;
+package com.dh10.utils;
 
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
